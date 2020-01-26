@@ -1,7 +1,13 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## Function does the following:
+# Initializes the inv_x to NULL. This holds the inverse matrix in parent environment
+# sets x based on the matrix passed to function
+# defines getter function for x
+# defines setter function for inv_x
+# defines getter function for inv_x
+# returns a list which has above 4 functions
 
 makeCacheMatrix <- function(x = matrix()) {
   
@@ -28,8 +34,10 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-## X is of type makeCacheMatrix
+
+## CacheSolve expects an input X of type makeCacheMatrix. It cannot be of type matrix else cacheSolve will return errror
+#  This function will take input makeCacheMatrix and set the inverse in parent environment
+
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -40,15 +48,15 @@ cacheSolve <- function(x, ...) {
   print(inv)
   
   if (!is.null(inv)) {
-    message("Inverse already existed in cache, returning from cache")
+    message("Inverse already existed incachemtx$getmatrixinverse() cache, returning from cache")
     return(inv)
   }
   
   # If we have got here it means inverese did not exist in cache 
-  message("Inverse did not existed in cache, getting matrix from parent environment")
+  message("Inverse did not exist in cache, getting matrix from parent environment")
   matrx <- x$getmatrix()
   
-  message("Solving and placing inverse parent environment")
+  message("Solving and placing inverse in parent environment")
   inv <- solve(matrx)
   x$setmatrixinverse(inv)
   inv

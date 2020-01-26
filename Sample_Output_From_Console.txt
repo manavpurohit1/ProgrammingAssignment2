@@ -1,0 +1,36 @@
+> mtx2 <- matrix(7:10,2,2)
+> cachemtx <- makeCacheMatrix(mtx2)
+> cachemtx$getmatrix()
+     [,1] [,2]
+[1,]    7    9
+[2,]    8   10
+> cachemtx$getmatrixinverse()
+NULL
+> 
+> cacheSolve(cachemtx)
+NULL
+Inverse did not existed in cache, getting matrix from parent environment
+Solving and placing inverse parent environment
+     [,1] [,2]
+[1,]   -5  4.5
+[2,]    4 -3.5
+> cachemtx$getmatrixinverse()
+     [,1] [,2]
+[1,]   -5  4.5
+[2,]    4 -3.5
+> 
+> mtx3 <- matrix(12:15, 2,2)
+> cachemtx$setmatrix(mtx3)
+> cachemtx$getmatrixinverse()
+NULL
+> cacheSolve(cachemtx)
+NULL
+Inverse did not existed in cache, getting matrix from parent environment
+Solving and placing inverse parent environment
+     [,1] [,2]
+[1,] -7.5    7
+[2,]  6.5   -6
+> cachemtx$getmatrixinverse()
+     [,1] [,2]
+[1,] -7.5    7
+[2,]  6.5   -6
